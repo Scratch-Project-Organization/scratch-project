@@ -9,6 +9,7 @@ module.exports = {
   devServer: {
     publicPath: 'http://localhost:8080/build',
     hot: true,
+    historyApiFallback: true,
     compress: true,
     port: 8080,
   },
@@ -32,6 +33,7 @@ module.exports = {
     test: /\.s[ac]ss$/i,
     exclude: /node_modules/,
     use: ['style-loader', 'css-loader', 'sass-loader']
-  }]
+    }
+  ],
   }
 };

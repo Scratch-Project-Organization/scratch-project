@@ -7,16 +7,21 @@ import BoardPage from './BoardPage'
 
 const HomePage = () => {
   return(
-    <Router>
-      <div>
-        <Link to="/board">Scrum Board</Link>
-        <Switch>
-          <Route path="/board">
-            <BoardPage />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    // <Router>
+    //   <div>
+    //     <Link to="/board">Scrum Board</Link>
+    //     <Switch>
+    //       <Route path="/board">
+    //         <BoardPage />
+    //       </Route>
+    //     </Switch>
+    //   </div>
+    // </Router>
+    <div>
+      <h1>Home page</h1>
+    </div>
+
+
   );
 };
 
