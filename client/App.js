@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import HomePage from './components/HomePage'
 // import styles from
 
 const App = props => {
     return(
-        <div>
-            <h1>hello world</h1>
+        <div id="router">
+            <HomePage />
         </div>
     );
 };
