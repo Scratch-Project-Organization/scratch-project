@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MONOG_URL = 'mongodb+srv://Scrum:scum@cluster0.s7gz7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const MONOG_URL = 'mongodb+srv://Scrum:Scrum@cluster0.s7gz7.mongodb.net/Cluster0?retryWrites=true&w=majority'
 
 mongoose.connect(MONOG_URL, {
   useNewUrlParser: true,
@@ -37,6 +37,7 @@ const Cards = mongoose.model('cards', cardSchema);
 const boardSchema = new Schema({
   title: {
     type: String,
+    unique: true,
     required: true
   },
   card_id: {
@@ -45,6 +46,7 @@ const boardSchema = new Schema({
   },
 })
 const Boards = mongoose.model('boards', boardSchema);
+
 const userSchema = new Schema({
   firstName: {
     type: String,

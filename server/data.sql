@@ -41,10 +41,9 @@ CONSTRAINT fk_customer
 CREATE TABLE Cards
 (
 CardID SERIAL PRIMARY KEY,
+BoardID INT
+FOREIGN KEY(BoardID) REFERENCES Board(BoardID)
 TaskName varchar(255),
 TaskDetail varchar(255),
 Column INT NOT NULL
-CONSTRAINT fk_board
-      FOREIGN KEY(BoardID) 
-	  REFERENCES Board(BoardID)
 );
