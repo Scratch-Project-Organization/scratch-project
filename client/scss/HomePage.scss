@@ -1,10 +1,18 @@
+@import "variables";
+
 .homePage{
     margin: 30px;
+    h1 {
+        display: flex;
+        justify-content: center;
+        font-family: $default-font;
+        color: $dark-blue;
+    }
 }
-
 
 .board-container{
     display: flex;
+    justify-content: center;
     flex-direction: row;
     margin-bottom: 50px;
     flex-wrap: wrap;
@@ -14,14 +22,16 @@
 
 .board-component{
     margin: 20px 16px;
+    border-radius: 5px;
     text-align: center;
     width: 130px;
     word-wrap: break-word;
+    vertical-align: center;
 
-    padding: 10px 15px;
+    padding: 10px 20px 50px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
     transition: 0.3s;
-    background-color:white;
+    background-color: rgba(100, 82, 204, 0.349);
 }
 .board-component:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -35,6 +45,9 @@
 
 
 .inputBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     input{
     padding: 10px 10px;
     border : 1px solid rgb(125, 149, 228);

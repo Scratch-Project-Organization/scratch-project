@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 const Card = (props) => {
+  const [card, setCard] = useState('');
   return(
     <div className='card-component'>
       {props.title}

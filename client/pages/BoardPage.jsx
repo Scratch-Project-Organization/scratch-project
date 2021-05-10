@@ -49,20 +49,32 @@ const BoardPage = () => {
   const fetchColumnHandler = (arrayOfCards) => {
     arrayOfCards.forEach((cardObj, i) => {
       const { category, title } = cardObj;
-      if (category === "Story") setStory([...story, {'title': title, 'column': "Story"}]);
-      if (category === "To-Do") setToDo([...toDo, {'title': title, 'column': "To-Do"}]);
-      if (category === "In-Progress") setInProgress([...inProgress, {'title': title, 'column': "In-Progress"}]);
-      if (category === "To-Verify") setToVerify([...toVerify, {'title': title, 'column': "To-Verify"}]);                    
-      if (category === "Completed") setCompleted([...completed, {'title': title, 'column': "Completed"}]);
+      console.log(title)
+      if (category === "Story") setStory(prevStory => [...prevStory, {'title': title, 'column': "Story"}]);
+      if (category === "To-Do") setToDo(preTodo => [...preTodo, {'title': title, 'column': "To-Do"}]);
+      if (category === "In-Progress") setInProgress(preProgess => [...preProgess, {'title': title, 'column': "In-Progress"}]);
+      if (category === "To-Verify") setToVerify(preVerify => [...preVerify, {'title': title, 'column': "To-Verify"}]);                    
+      if (category === "Completed") setCompleted(preCompleted => [...preCompleted, {'title': title, 'column': "Completed"}]);
     })
   }
+  
+  // const moveCard
+
+
+
+
+
 
   const { board } = useParams();
   useEffect(() => {
     // const { board } = useParams();
     fetch(`/api/${board}`)
       .then(response => response.json())
-        .then(data => fetchColumnHandler(data))
+        .then(data => {
+          // console.log(data);
+          fetchColumnHandler(data);
+        }
+        )
   }, [])
 
 
@@ -87,8 +99,6 @@ const BoardPage = () => {
         <Column className='columns' column={inProgress} header="In-Progress" />
         <Column className='columns' column={toVerify} header="To-Verify" />
         <Column className='columns' column={completed} header="Completed" />
-
-        {/* {columnList.map((column, i) => <Column key={`column${i}`} title={column} />)} */}
       </div>
 
     </div>

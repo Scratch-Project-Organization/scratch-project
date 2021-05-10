@@ -21,7 +21,7 @@ const HomePage = () => {
     body: JSON.stringify(newBoard),
     })
       .then(data => data.json())
-      .then(res => setBoardList([...boardList, res]))
+      .then(res => setBoardList([...boardList, ...res]))
     setBoard("");
   }
 
