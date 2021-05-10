@@ -25,7 +25,3 @@
     //drag and drop
     //add spin/ additional attributes to app?
 
-
-
-
-

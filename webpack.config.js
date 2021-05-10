@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './client/index.js',
@@ -9,6 +10,7 @@ module.exports = {
   devServer: {
     publicPath: 'http://localhost:8080/build',
     hot: true,
+    historyApiFallback: true,
     compress: true,
     port: 8080,
   },
@@ -32,6 +34,15 @@ module.exports = {
     test: /\.s[ac]ss$/i,
     exclude: /node_modules/,
     use: ['style-loader', 'css-loader', 'sass-loader']
-  }]
-  }
+    },
+    //  {
+    //    test: /\.css$/i,
+    //    exclude: /node_modules/,
+    //    use: [MiniCssExtractPlugin.loader, 'css-loader'],
+    //  },
+   ],
+  },
+  //  plugins: [
+  //    new MiniCssExtractPlugin(),
+  //  ]
 };

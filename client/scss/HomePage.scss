@@ -1,0 +1,49 @@
+.homePage{
+    margin: 30px;
+}
+
+
+.board-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    min-height: 120px;
+}
+
+
+.board-component{
+    margin: 20px 16px;
+    text-align: center;
+    width: 130px;
+
+    padding: 10px 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+    transition: 0.3s;
+    background-color:white;
+}
+.board-component:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+
+
+.inputBox {
+    input{
+    padding: 10px 10px;
+    border : 1px solid rgb(125, 149, 228);
+    margin-right: 10px;
+    border-radius: 0.4em;
+    outline:none;
+
+    }
+    button{
+    padding: 10px 10px;
+    border : 1px solid rgb(125, 149, 228);
+    background-color: rgb(173, 207, 230);
+    border-radius: 0.4em;
+    }
+
+}
+
+//input box
