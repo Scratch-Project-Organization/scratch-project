@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const Card = (props) => {
   return(
-    <div>
+    <div className='card-component'>
       {props.title}
     </div>
   );

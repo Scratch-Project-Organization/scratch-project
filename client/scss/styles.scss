@@ -1,6 +1,9 @@
+@import "variables";
+
 body{
     padding: 0;
     margin: 0;
+    background-color: $background-color;
 }
 
 /**Navigation**/
@@ -9,7 +12,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(4, 3, 58);
+    background-color: $dark-blue;
   }
   
   li {

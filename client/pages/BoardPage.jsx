@@ -33,10 +33,10 @@ const BoardPage = () => {
 
 
   return(
-    <div>
+    <div id='board-page-div'>
       <h2 id='board-page-title'>Board Page</h2>
-      <div className="inputBox">
-        <input type='text' value= {title} onChange={e=> setTitle(e.target.value)}></input>  
+      <div className="cardInputBox">
+        <input type='text' placeholder='Task Description' value= {title} onChange={e=> setTitle(e.target.value)}></input>  
         <select name='column' id='column-select' onChange={e => setColumn(e.target.value)}>
           <option value="Story" defaultValue>Story</option>
           <option value="To-Do">To-Do</option>
@@ -47,12 +47,12 @@ const BoardPage = () => {
         <button onClick={columnHandler}>Create Card</button>
       </div>
 
-      <div id="columns">
-        <Column column={story} header="Story" />
-        <Column column={toDo} header="To-Do" />
-        <Column column={inProgress} header="In-Progress" />
-        <Column column={toVerify} header="To-Verify" />
-        <Column column={completed} header="Completed" />
+      <div id="columns-div">
+        <Column className='columns' column={story} header="Story" />
+        <Column className='columns' column={toDo} header="To-Do" />
+        <Column className='columns' column={inProgress} header="In-Progress" />
+        <Column className='columns' column={toVerify} header="To-Verify" />
+        <Column className='columns' column={completed} header="Completed" />
 
         {/* {columnList.map((column, i) => <Column key={`column${i}`} title={column} />)} */}
       </div>

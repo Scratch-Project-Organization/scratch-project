@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import BoardPage from './BoardPage';
 import Board from '../components/Board';
-
+import '../scss/HomePage.scss';
 // displays boardcards (for each user if using login)
 // navigation page to individual scrum boards
 
@@ -20,9 +20,9 @@ const HomePage = () => {
   // input box and a button
 
   return(
-    <div>
-      <h1>Home page</h1>
-      <div>
+    <div className="homePage">
+      <h1>Project Boards</h1>
+      <div className="board-container">
       {boardList.map((name, i) => <Board key={`card${i}`} board={name}/>)}
       </div>
 

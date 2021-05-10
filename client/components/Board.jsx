@@ -3,10 +3,10 @@ import React from 'react';
 
 const Board = (props) => {
   return(
-  <div>
+  <div className="board-component">
 
-    <h2>{props.board}</h2>
-    <h1></h1>
+    <h3>{props.board}</h3>
+ 
   </div>
   );
 };
