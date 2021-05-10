@@ -1,8 +1,16 @@
 import React, { Component, useState } from 'react';
 import Column from '../components/Column'
+import { useParams } from "react-router-dom";
 
 // display createCard form
 // render a card after filling out createCard form
+
+// const BoardPage = () =>{
+//   let {id} = useParams();
+//    return(
+//     <h1>Hello {id}</h1>
+//   )
+// }
 
 const BoardPage = () => {
   // const [column, setColumn] = useState("")

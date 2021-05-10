@@ -37,7 +37,7 @@ const App = props => {
             <Navigation />
                 <Switch>
                     <Route path="/" exact component ={HomePage} />
-                    <Route path="/board" exact component ={BoardPage} />
+                    <Route path="/board" exact component ={BoardPage}   />
                 </Switch>
             </Router>
         </div>

@@ -1,13 +1,33 @@
 import React from 'react';
+import { BrowserRouter as Router , Switch, Route, Link,
+  NavLink, useParams } from 'react-router-dom';
 
 
 const Board = (props) => {
-  return(
-  <div className="board-component">
+  const goToBoardPage = () => {
+    // grab board id
+    // open board page rendering information matching board id
+    // route
+    console.log(props.board);
+  };
+  // fetch(`/apiname/?name=${props.board}`, )
 
-    <h3>{props.board}</h3>
- 
-  </div>
+  //when you click on board thumbnail, rout to BoardPage, and send board ID number to boardpage
+
+
+
+  return(
+    // <Router>
+      <div className="board-component" onClick={goToBoardPage}>
+
+        <h3>{props.board}</h3>
+
+      </div>
+      /* <Switch>
+        <Route path=""
+      </Switch>
+    </Router> */
+  
   );
 };
 

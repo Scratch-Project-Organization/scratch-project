@@ -15,7 +15,7 @@ boardController.addBoard = (req, res, next) => {
 boardController.getBoards = (req, res, next) => {
     Boards.find({}).exec()
         .then(board => {
-            res.locals.board = board;
+            res.locals.boards = board;
             next();
         })
         .catch(err => next({status: 400}))

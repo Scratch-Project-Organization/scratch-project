@@ -13,6 +13,9 @@ module.exports = {
     historyApiFallback: true,
     compress: true,
     port: 8080,
+    proxy: {
+      '/api': 'http://localhost:3000/'
+    },
   },
   mode: process.env.NODE_ENV,
   resolve: {

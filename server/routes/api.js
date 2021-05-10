@@ -9,11 +9,11 @@ const router = express.Router();
 //router for home page
 //middleware needed - addBoard, getBoards, deleteBoard
 router.get('/', boardController.getBoards, (req, res) => {
-    res.status(200).json(res.locals.board);
+    res.status(200).json(res.locals.boards);
 });
 
 router.post('/', boardController.addBoard, (req, res) => {
-    res.status(200).json(req.body);
+    res.status(200).json(res.locals.board);
 });
 
 router.delete('/', boardController.deleteBoard, (req, res) => {
