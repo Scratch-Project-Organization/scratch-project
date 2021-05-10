@@ -61,10 +61,6 @@ const BoardPage = () => {
   // const moveCard
 
 
-
-
-
-
   const { board } = useParams();
   useEffect(() => {
     // const { board } = useParams();
