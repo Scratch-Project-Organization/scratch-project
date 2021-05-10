@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import Column from '../components/Column'
 import { useParams } from "react-router-dom";
 
@@ -30,6 +30,14 @@ const BoardPage = () => {
 // {title:"sdf", column:''}
   const columnHandler = () => {
     // setCardList([...cardList, {"title": title, "column": column}])
+    fetch(`/api/${board}`, {
+      method: 'POST',
+      headers:  { 'Content-Type': 'application/json'},
+      body: JSON.stringify({'title': title, 'category': column})
+      })
+        .then(data => data.json())
+        .then(res => console.log(res));
+
     if (column === "Story") setStory([...story, {'title': title, 'column': column}]);
     if (column === "To-Do") setToDo([...toDo, {'title': title, 'column': column}]);
     if (column === "In-Progress") setInProgress([...inProgress, {'title': title, 'column': column}]);
@@ -38,11 +46,29 @@ const BoardPage = () => {
     setTitle("");
   };
 
+  const fetchColumnHandler = (arrayOfCards) => {
+    arrayOfCards.forEach((cardObj, i) => {
+      const { category, title } = cardObj;
+      if (category === "Story") setStory([...story, {'title': title, 'column': "Story"}]);
+      if (category === "To-Do") setToDo([...toDo, {'title': title, 'column': "To-Do"}]);
+      if (category === "In-Progress") setInProgress([...inProgress, {'title': title, 'column': "In-Progress"}]);
+      if (category === "To-Verify") setToVerify([...toVerify, {'title': title, 'column': "To-Verify"}]);                    
+      if (category === "Completed") setCompleted([...completed, {'title': title, 'column': "Completed"}]);
+    })
+  }
+
+  const { board } = useParams();
+  useEffect(() => {
+    // const { board } = useParams();
+    fetch(`/api/${board}`)
+      .then(response => response.json())
+        .then(data => fetchColumnHandler(data))
+  }, [])
 
 
   return(
     <div id='board-page-div'>
-      <h2 id='board-page-title'>Board Page</h2>
+      <h2 id='board-page-title'>{board}</h2>
       <div className="cardInputBox">
         <input type='text' placeholder='Task Description' value= {title} onChange={e=> setTitle(e.target.value)}></input>  
         <select name='column' id='column-select' onChange={e => setColumn(e.target.value)}>

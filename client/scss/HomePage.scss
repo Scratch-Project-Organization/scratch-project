@@ -16,6 +16,7 @@
     margin: 20px 16px;
     text-align: center;
     width: 130px;
+    word-wrap: break-word;
 
     padding: 10px 15px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
@@ -25,6 +26,11 @@
 .board-component:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
+}
+
+.board-component-link {
+    color: inherit;
+    text-decoration: none;
 }
 
 

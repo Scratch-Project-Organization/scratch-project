@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HomePage from './pages/HomePage';
 import BoardPage from './pages/BoardPage';
+import TestPage from './pages/TestPage';
 import { BrowserRouter as Router , Switch, Route, Link,
     NavLink} from 'react-router-dom';
 
@@ -36,8 +37,12 @@ const App = props => {
             <Router>
             <Navigation />
                 <Switch>
-                    <Route path="/" exact component ={HomePage} />
-                    <Route path="/board" exact component ={BoardPage}   />
+                    <Route path="/" exact component ={HomePage} /> 
+                    <Route path="/board/:board" component ={BoardPage} />
+                    <Route path="/test">
+                      <TestPage/>
+                      </Route>
+
                 </Switch>
             </Router>
         </div>

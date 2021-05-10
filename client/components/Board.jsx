@@ -4,12 +4,18 @@ import { BrowserRouter as Router , Switch, Route, Link,
 
 
 const Board = (props) => {
-  const goToBoardPage = () => {
-    // grab board id
-    // open board page rendering information matching board id
-    // route
-    console.log(props.board);
-  };
+  // const goToBoardPage = () => {
+  //   // grab board id
+  //   // open board page rendering information matching board id
+  //   // route
+  //   fetch(`/api/${props.board}`, {
+  //     method: 'GET',
+  //     headers:  { 'Content-Type': 'application/json'}
+  //     })
+  //     .then(data => data.json())
+  //     .then(res => )
+
+  // };
   // fetch(`/apiname/?name=${props.board}`, )
 
   //when you click on board thumbnail, rout to BoardPage, and send board ID number to boardpage
@@ -17,16 +23,9 @@ const Board = (props) => {
 
 
   return(
-    // <Router>
-      <div className="board-component" onClick={goToBoardPage}>
-
-        <h3>{props.board}</h3>
-
+      <div className="board-component" >
+        <Link className='board-component-link' to={`/board/${props.board}`} activeclassname="current">{props.board}</Link>
       </div>
-      /* <Switch>
-        <Route path=""
-      </Switch>
-    </Router> */
   
   );
 };
