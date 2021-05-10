@@ -23,13 +23,9 @@ const cardSchema = new Schema({
     type: String,
     required: true
   },
-  board: {
+  boardID: {
     type: String,
     required: true
-  },
-  user_id: {
-    type: Schema.Types.ObjectId,
-    ref: 'users'
   },
 })
 const Cards = mongoose.model('cards', cardSchema);
@@ -40,10 +36,7 @@ const boardSchema = new Schema({
     unique: true,
     required: true
   },
-  card_id: {
-    type: Schema.Types.ObjectId,
-    ref: 'cards'
-  },
+ 
 })
 const Boards = mongoose.model('boards', boardSchema);
 

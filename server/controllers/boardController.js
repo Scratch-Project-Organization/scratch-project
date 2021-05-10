@@ -3,8 +3,8 @@ const { Boards} = require('../models/boardModel');
 const boardController = {};
 
 boardController.addBoard = (req, res, next) => {
-    // const { title} = req.body;
-    Boards.create({ title: "Scurm Board"}, (err, board) => {
+    const { title } = req.body;
+    Boards.create({ title }, (err, board) => {
         if (err) next ({status: 400});
         console.log(board)
         res.locals.board = board;
@@ -23,8 +23,11 @@ boardController.getBoards = (req, res, next) => {
 };
 
 boardController.deleteBoard = (req, res, next) => {
-    Boards.findOneAndRemove({})
-        .then(board => {
+    const { title } = req.body;
+    Boards.findOneAndRemove({ title })
+    //find all and delete - for card model
+    //pass in boardID for what we are searching    
+    .then(board => {
             next();
         })
         .catch(err => next({status: 400}))

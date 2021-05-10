@@ -13,24 +13,37 @@ router.get('/', boardController.getBoards, (req, res) => {
 });
 
 router.post('/', boardController.addBoard, (req, res) => {
-    res.status(200).json(res.locals.board);
+    res.status(200).json(req.body);
 });
+
 router.delete('/', boardController.deleteBoard, (req, res) => {
     res.status(200).json({"message": "deleted"});
 });
 
 // route to the individual boards
-//middleware needed - addCard, getCars, deleteCard
-// router.get('/:board', (req,res) => {
-//     res.status(200).json();
-// });
+//middleware needed - addCard, getCards, deleteCard
+router.get('/:board', cardController.getCards, (req,res) => {
+    res.status(200).json(res.locals.cards);
+});
 
-//route to edit the individual cards
-//middleware needed - updateDetails, updateTitle, updateCategory
-// router.get('/:board/:card', (req,res) => {
-//     res.status(200).json();
-// });
+router.post('/:board', cardController.addCard, (req,res) => {
+    res.status(200).json(res.locals.card);
+});
 
+router.delete('/:board', cardController.deleteCard, (req, res) => {
+    res.status(200).json({"message": "deleted"});
+});
+
+// route to edit the individual cards
+// middleware needed - updateDetails, updateTitle, updateCategory
+router.patch('/:board/:card', cardController.updateCardCategory, (req,res) => {
+    res.status(200).json(res.locals.cards);
+});
+
+
+// router.get('/:card', cardController.getOneCard, (req,res) => {
+//     res.status(200).json(res.locals.card);
+// });
 
 
 
