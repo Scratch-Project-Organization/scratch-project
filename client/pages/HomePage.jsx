@@ -11,6 +11,8 @@ const HomePage = () => {
   const [board, setBoard] = useState("");
   const [boardList, setBoardList] = useState([]);
 
+  console.log("BOARD", boardList)
+
   const saveBoardHandler = () => {
     //make post request to backend
     //take the result and push it to boardlist

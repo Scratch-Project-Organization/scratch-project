@@ -1,14 +1,5 @@
 const mongoose = require('mongoose');
 
-const MONOG_URL = 'mongodb+srv://Scrum:Scrum@cluster0.s7gz7.mongodb.net/Cluster0?retryWrites=true&w=majority'
-
-mongoose.connect(MONOG_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  dbName: "Scrum",
-}).then(()=> {console.log('Connected to MonDB')})
-.catch(()=> console.log('cannot connect to mongdb'));
-
 //board model
 
 const Schema = mongoose.Schema;
@@ -36,7 +27,7 @@ const boardSchema = new Schema({
     unique: true,
     required: true
   },
- 
+
 })
 const Boards = mongoose.model('boards', boardSchema);
 
