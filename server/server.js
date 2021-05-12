@@ -6,14 +6,27 @@ const apiRouter = require('./routes/api');
 const app = express();
 const PORT = 3000;
 
+
+// connect to MongoDB
+const mongoose = require('mongoose');
+
+const MONGO_URL = 'mongodb+srv://Scrum:Scrum@cluster0.s7gz7.mongodb.net/Cluster0?retryWrites=true&w=majority'
+
+mongoose.connect(MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  dbName: "Scrum",
+}).then(() => { console.log('Connected to MongoDB') })
+  .catch(() => console.log('cannot connect to mongdb'));
+
 app.use(express.json());
 
-if( process.env.NODE_ENV == "production"){
-app.use('/build', express.static(path.join(__dirname, '../build')));
+if (process.env.NODE_ENV == "production") {
+  app.use('/build', express.static(path.join(__dirname, '../build')));
 
-app.get('/', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../index.html'));
-})
+  app.get('/', (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, '../index.html'));
+  })
 }
 
 

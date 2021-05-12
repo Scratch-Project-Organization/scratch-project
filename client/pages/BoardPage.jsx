@@ -18,6 +18,8 @@ const BoardPage = () => {
   const [column, setColumn] = useState('Story');
   const [cardList, setCardList] = useState([]);
 
+  console.log(column)
+
   // declare state for each column
   const [story, setStory] = useState([]);
   const [toDo, setToDo] = useState([]);
@@ -25,6 +27,7 @@ const BoardPage = () => {
   const [toVerify, setToVerify] = useState([]);
   const [completed, setCompleted] = useState([]);
 
+  console.log("STORY",story)
 
   const columnList = ['Story', 'To-Do', 'In-Progess', 'To-Verify', 'Completed'];
 // {title:"sdf", column:''}
