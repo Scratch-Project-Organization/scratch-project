@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 import BoardPage from './BoardPage';
 import Board from '../components/Board';
 import '../scss/HomePage.scss';
@@ -10,6 +10,7 @@ const HomePage = () => {
 
   const [board, setBoard] = useState("");
   const [boardList, setBoardList] = useState([]);
+  const history = useHistory()
 
   console.log("BOARD", boardList)
 
@@ -28,11 +29,16 @@ const HomePage = () => {
   }
 
   useEffect(() => {
+    console.log("fetching boards")
     fetch('/api')
     .then(res => res.json())
     .then(res => {
-      setBoardList([...boardList, ...res]);
-
+      console.log(res)
+      if(!res.isLoggedIn) {
+        history.push('/landing')
+      } else{
+      setBoardList([...boardList, ...res.boards]);
+      }
     })
     .catch(e => console.log(e));
   }, []);

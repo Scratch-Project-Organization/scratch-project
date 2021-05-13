@@ -8,7 +8,7 @@ import './scss/BoardPage.scss';
 
 render(
     <BrowserRouter>
-        <App/>
+        <App />
     </BrowserRouter>,
     document.getElementById("root"),
 );
