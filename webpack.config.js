@@ -15,8 +15,7 @@ module.exports = {
     compress: true,
     port: 8080,
     proxy: {
-      '/api': 'http://localhost:3000/',
-      '/user': 'http://localhost:3000/'
+      '/api': 'http://localhost:3000/'
     },
   },
   mode: process.env.NODE_ENV,

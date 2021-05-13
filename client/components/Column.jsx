@@ -20,4 +20,3 @@ const Column = ({column, header}) =>{
 };
 
 export default Column;
-  
