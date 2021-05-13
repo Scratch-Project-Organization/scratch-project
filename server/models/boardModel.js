@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 
+
 const MONOG_URL = 'mongodb+srv://Scrum:Scrum@cluster0.s7gz7.mongodb.net/Cluster0?retryWrites=true&w=majority'
 
 mongoose.connect(MONOG_URL, {
@@ -14,6 +15,7 @@ const Schema = mongoose.Schema;
 
 
  
+
 //board model
 
 
@@ -41,7 +43,7 @@ const boardSchema = new Schema({
     unique: true,
     required: true
   },
- 
+
 })
 
 
