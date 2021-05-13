@@ -27,10 +27,7 @@ const BoardPage = () => {
   const [toVerify, setToVerify] = useState([]);
   const [completed, setCompleted] = useState([]);
 
-
-  const [user, setUser] = useState('')
-
-
+  console.log("STORY",story)
 
   const columnList = ['Story', 'To-Do', 'In-Progess', 'To-Verify', 'Completed'];
 // {title:"sdf", column:''}
