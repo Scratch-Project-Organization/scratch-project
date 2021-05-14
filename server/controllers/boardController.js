@@ -1,8 +1,9 @@
-const { Boards} = require('../models/boardModel');
-
+const { Boards } = require('../models/boardModel');
+const { Users } = require('../models/boardModel');
 const boardController = {};
 
 boardController.addBoard = (req, res, next) => {
+    console.log("in boardController.addBoard")
     const { title } = req.body;
     Boards.create({ title }, (err, board) => {
         if (err) next ({status: 400});
@@ -13,12 +14,25 @@ boardController.addBoard = (req, res, next) => {
 };
 
 boardController.getBoards = (req, res, next) => {
-    Boards.find({}).exec()
-        .then(board => {
-            res.locals.boards = board;
-            next();
-        })
-        .catch(err => next({status: 400}))
+    console.log("in getBoards")
+    Users.findOne({_id: req.cookies.ssid}, (err, result) =>{
+        if(result){
+            Boards.find().where('_id').in(result.boards).exec((err, records) =>{
+                res.locals.boards = records;
+                next();
+            })
+        }else{
+            console.log(err)
+        }
+    })
+    // console.log(result)
+    // Boards.find({}).exec()
+    //     .then(board => {
+    //         // console.log(board)
+    //         res.locals.boards = board;
+    //         next();
+    //     })
+    //     .catch(err => next({status: 400}))
 
 };
 

@@ -3,13 +3,17 @@ const express = require('express');
 const boardController = require('../controllers/boardController');
 const cardController = require('../controllers/cardController');
 const userController = require('../controllers/cardController');
+const sessionController = require('../controllers/sessionController')
 
 const router = express.Router();
 
 //router for home page
 //middleware needed - addBoard, getBoards, deleteBoard
-router.get('/', boardController.getBoards, (req, res) => {
-    res.status(200).json(res.locals.boards);
+router.get('/', 
+    sessionController.verifySession, 
+    boardController.getBoards, 
+    (req, res) => {
+        res.status(200).json(res.locals);
 });
 
 router.post('/', boardController.addBoard, (req, res) => {

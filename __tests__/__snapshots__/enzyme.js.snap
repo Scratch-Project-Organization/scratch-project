@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Board /> check snapshot 1`] = `
+<div
+  className="board-component"
+>
+  <Link
+    activeclassname="current"
+    className="board-component-link"
+    to="/board/Scrum Board"
+  >
+    Scrum Board
+  </Link>
+</div>
+`;
+
+exports[`<Card /> check snapshot 1`] = `
+<div
+  className="card-component"
+>
+  Card1
+  <select
+    className="card-component-dropdown"
+    name="column"
+  >
+    <option
+      defaultValue={true}
+      value="Story"
+    >
+      Story
+    </option>
+    <option
+      value="To-Do"
+    >
+      To-Do
+    </option>
+    <option
+      value="In-Progress"
+    >
+      In-Progress
+    </option>
+    <option
+      value="To-Verify"
+    >
+      To-Verify
+    </option>
+    <option
+      value="Completed"
+    >
+      Completed
+    </option>
+  </select>
+  <button
+    className="move-button"
+  >
+    Move
+  </button>
+</div>
+`;
+
+exports[`<Column /> check snapshot 1`] = `
+<div
+  className="card-component"
+>
+  <select
+    className="card-component-dropdown"
+    name="column"
+  >
+    <option
+      defaultValue={true}
+      value="Story"
+    >
+      Story
+    </option>
+    <option
+      value="To-Do"
+    >
+      To-Do
+    </option>
+    <option
+      value="In-Progress"
+    >
+      In-Progress
+    </option>
+    <option
+      value="To-Verify"
+    >
+      To-Verify
+    </option>
+    <option
+      value="Completed"
+    >
+      Completed
+    </option>
+  </select>
+  <button
+    className="move-button"
+  >
+    Move
+  </button>
+</div>
+`;
