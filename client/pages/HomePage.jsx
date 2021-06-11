@@ -21,7 +21,7 @@ const HomePage = () => {
     body: JSON.stringify(newBoard),
     })
       .then(data => data.json())
-      .then(res => setBoardList([...boardList, ...res]))
+      .then(res => setBoardList([...boardList, res]))
     setBoard("");
   }
 
@@ -42,7 +42,7 @@ const HomePage = () => {
 
   return(
     <div className="homePage">
-      <h1>Project Boards</h1>
+      <h1 id='homepage-title'>Project Boards</h1>
       <div className="board-container">
       {boardList.map((board, i) => <Board key={`card${i}`} board={board.title} />)}
       </div>

@@ -6,6 +6,10 @@ const apiRouter = require('./routes/api');
 const app = express();
 const PORT = 3000;
 
+
+// const jagtester = require('../../../production project/jagtester1/jagtester/lib/index');
+// app.use(jagtester(app))
+
 app.use(express.json());
 
 if( process.env.NODE_ENV == "production"){
